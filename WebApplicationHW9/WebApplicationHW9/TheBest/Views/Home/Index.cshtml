@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var posts = ViewData["Posts"] as IEnumerable<TheBest.Models.Card>;
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        @foreach (var post in posts)
+        {
+            <span>@post.FullName</span>
+            <span>@post.Date</span>
+            <span>@post.CVV</span>
+        }
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>

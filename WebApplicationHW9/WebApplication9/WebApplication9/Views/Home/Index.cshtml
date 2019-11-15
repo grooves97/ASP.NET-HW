@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication9.Models.Card>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <td>CardHolder</td>
+            <td>DateExpire</td>
+            <td>CVV Code</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => i.CardHolder)</td>
+            <td>@Html.DisplayFor(modelItem => i.DateExpire)</td>
+            <td>@Html.DisplayFor(modelItem => i.CVV)</td>
+        </tr>
+        }
+
+    </tbody>
+</table>
