@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Details";
+    var product = ViewData["Product"] as WebApplication6.Models.Product;
+}
+
+<h2>Описание товара</h2>
+
+<div id="productLst" class="">
+    <h3>Product: @product.Name</h3>
+    <dl>
+        <dt>Name</dt>
+        <dd>@product.Name</dd>
+        <dt>Price</dt>
+        <dd>@product.Price</dd>
+        <dt>Description</dt>
+        <dd>@product.Description</dd>
+    </dl>
+</div>
+
+@Html.ActionLink("Return to products", "Index", "Home", new object { }, new { @class = "btnLink"})

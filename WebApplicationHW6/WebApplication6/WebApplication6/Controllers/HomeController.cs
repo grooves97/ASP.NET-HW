@@ -41,16 +41,27 @@ namespace WebApplication6.Controllers
         {
             context.Products.Add(new Product { Name=name, Description=description, Price = price });
             context.SaveChanges();
-            return View();
+            var js = "window.location = '" + Url.Action("Index", "Home") + "' ;";
+
+            return JavaScript(js);
         }
 
-        // GET: Home/Delete/5
         public ActionResult Delete(Guid id)
         {
             Product product = context.Products.Find(id);
+            context.Products.Remove(product);
+            context.SaveChanges();
             ViewData["Product"] = product;
 
-            return View();
+            return RedirectToAction("Index");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                context.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
