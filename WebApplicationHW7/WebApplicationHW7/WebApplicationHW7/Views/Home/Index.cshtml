@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplicationHW7.ViewModel.PostViewModel>
+@{
+    ViewBag.Title = "Home Page";
+    string isAuthenticated = ViewData["IsAuthenticated"] as string;
+    string isAdmin = ViewData["IsAdmin"] as string;
+    var posts = ViewData["Posts"] as IEnumerable<WebApplicationHW7.ViewModel.PostViewModel>;
+}
+
+    <div class="jumbotron">
+        @if (isAuthenticated == "NotAuthenticated")
+        {
+            <h2>Зайдите в свой аккаунт</h2>
+        }
+        else
+        {
+            foreach (var post in Model)
+            {
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2></h2>
+                        <p>
+                            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                            enables a clean separation of concerns and gives you full control over markup
+                            for enjoyable, agile development.
+                        </p>
+                        <a href=""><img src="@post.ImgPath" alt="Image" class="img-rounded"/></a>
+                        <h2><a href="#">@post.Title</a></h2>
+                    </div>
+                    <p>@post.Text</p>
+                    <p><a href="#">Читать далее</a></p>
+                </div>
+            }
+        }
+    </div>
+
