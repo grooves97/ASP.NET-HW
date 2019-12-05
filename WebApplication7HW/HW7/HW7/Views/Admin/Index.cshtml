@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var message = ViewBag.Message;
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+{
+    <p>Введите свое имя </p>
+    <input type="text" name="login" />
+    <p>Введите пароль :</p>
+    <input type="password" name="password" />
+    <input type="submit" value="Войти" />
+}
+
+<div class="center-block">
+    <p class="alert-danger">@message</p>
+</div>
